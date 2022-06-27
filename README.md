@@ -1,5 +1,9 @@
 # General-Riemannian-Smoothing-Method
-general smoothing method on Riemannian manifold
+General smoothing method on Riemannian manifold, 
+
+for solving the general nonsmooth Riemannian optimization problem:
+			$$\min _{x \in \mathcal{M}} f(x),$$
+		where $\mathcal{M}$ is any available manifold in Manopt and $f:\mathcal{M} \to \mathbb{R}$ is nonsmooth. 
 
 These codes for the paper ''Completely Positive Factorization by a Riemannian Smoothing Method''.[[arXiv]](https://arxiv.org/abs/2107.01538)
 
@@ -11,15 +15,13 @@ Getting started with Manopt and more help: https://www.manopt.org/tutorial.html
 The code is based on matalb solver 'Manopt'.
 Notice that we do not modify any of the functions given by the solver Manopt.
 
-# ----------- Introduction to solver RieSmooth.m -----------
+# Introduction to solver RieSmooth.m
 
 sovler of general Riemannian smoothing algorithm
 
+* function [x,cost,all_info,options]=RieSmooth(problem,x0,options)
 
-
-function [x,cost,all_info,options]=RieSmooth(problem,x0,options)
-
-function [x,cost,all_info,options]=RieSmooth(problem,[],options)
+* function [x,cost,all_info,options]=RieSmooth(problem,[],options)
 
 ----------- Request for input structure variable 
 
@@ -48,7 +50,7 @@ This is called inner itertaions under the fixed mu.
 When inner itertaions meet some condition, e.g., tolgradnorm <=0.5*mu, we start outer iterations, i.e., shrinking mu. 
 Theorem 3.6 in paper above show convergence to a stationary point of the original problem.
 
-# ----------- Introduction to smoothing funs -----------
+# Introduction to smoothing funs
 
 (1) one smoothing function of maximum function
 
@@ -63,10 +65,18 @@ result = grad_lse(X,mu)
 
 (2) five smoothing functions of absolute value function and their Euclidean gradients.
 
-    appr_abs1.m       appr_abs3.m       appr_abs5.m       grad_appr_abs2.m  grad_appr_abs4.m  
-    appr_abs2.m       appr_abs4.m       grad_appr_abs1.m  grad_appr_abs3.m  grad_appr_abs5.m  
-
-# ----- Introduction to problems, clients and bosses -----
+    appr_abs1.m
+    appr_abs2.m       
+    appr_abs3.m  
+    appr_abs4.m       
+    appr_abs5.m       
+    grad_appr_abs1.m
+    grad_appr_abs2.m  
+    grad_appr_abs3.m
+    grad_appr_abs4.m
+    grad_appr_abs5.m  
+      
+# Introduction to problems, clients and bosses
 
 List of problem:
 
@@ -78,7 +88,7 @@ List of problem:
 
 All the clients are base on the solver RieSmooth.m.
 
-(1) client_CPfact.m 
+## (1) client_CPfact.m 
 
 If no input is provided, we generate a quick demo.
 
@@ -92,13 +102,13 @@ This function is called by:
     
     cmd_CPfact.m --- Command to execute all experiments above
 
-(2) client_CPfact_easyCP.m
+## (2) client_CPfact_easyCP.m
 
 This function is called by:
 
     Boss_CPfact_easy.m  --- Numerical experiments of section 4.3 
     
-(3) client_FSV.m 
+## (3) client_FSV.m 
 
 If no input is provided, we generate a quick demo.
 
@@ -108,7 +118,7 @@ This function is called by:
     
     cmd_FSV.m --- Command to execute all experiments above
 
-(4) client_RMC.m
+## (4) client_RMC.m
 
 This function is called by:
 
@@ -118,9 +128,9 @@ This function is called by:
     
     cmd_RMC --- Command to execute all experiments above
 
-# ----------- Introduction to tools -----------
+# Introduction to tools
 
-(1) Used for CP factorization problem
+## (1) Used for CP factorization problem
 
 A = gen_specialCP(n) 
 
@@ -137,7 +147,7 @@ M = RandOrthMat(n, tol)
     https://www.mathworks.com/matlabcentral/fileexchange/11783-randorthmat 
     MATLAB Central File Exchange. Retrieved April 20, 2022.
 
-(2) Used for FSV problem
+## (2) Used for FSV problem
 
 Q = mgson(X)
 
@@ -146,7 +156,7 @@ Q = mgson(X)
     (https://www.mathworks.com/matlabcentral/fileexchange/55881-gram-schmidt-orthogonalization),
     MATLAB Central File Exchange. Retrieved June 11, 2022.
 
-(3) Used for Robust low-rank matrix completion (RMC)  problem
+## (3) Used for Robust low-rank matrix completion (RMC)  problem
 
 erorr=RMSE(X,M0)
 
@@ -165,7 +175,7 @@ RMC_mergefigs.m
 
     plot six results in one figure
 
-(3) Used for general problem
+## (4) Used for general problem
 
 RieSmooth_checksmoothingfuns(problem)
 
