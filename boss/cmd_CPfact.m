@@ -2,6 +2,7 @@ tic
 
 
 %% sec4.1 Result_CPfact_random_1point5  
+
 clear;clc;close all;
 
 newfolder='Result_CPfact_random_1point5';
@@ -16,6 +17,7 @@ cd ..\  % back to parent
 
 
 %% sect4.1 Result_CPfact_random_3
+
 clear;clc;close all;
 
 newfolder='Result_CPfact_random_3';
@@ -43,6 +45,8 @@ cd ..\  % back to parent
 
 %% sect4.4 Result_CPfact_hard
 
+clear;clc;close all;
+
 newfolder='Result_CPfact_hard';
 mkdir(newfolder);
 cd(newfolder);
@@ -53,14 +57,4 @@ cd ..\  % back to parent
 %%
 
 t=toc;
-
-
-
-
-
-
-
-
-
-
 
