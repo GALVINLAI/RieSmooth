@@ -25,7 +25,7 @@ sovler of general Riemannian smoothing algorithm
 
 ----------- Request for input structure variable 
 
-problem structure:
+**problem** structure:
 
 - problem.M % manifold
 
@@ -37,17 +37,22 @@ problem structure:
 
 - or, problem.gradsmoothcost = @(x,mu) % Riemannian gradient of smoothed cost function
 
-options structure:
+**options** structure:
 
 - options.outerstopfun(problem, x, info, totoal_iter) % A required user-specified method of exiting the RieSmooth
 
 ----------- Brief description of Riemannian smoothing algorithm
 
 We use a smoothed cost function to replace the actual (but not smoothed) cost function. 
+
 Parameter mu (positive) controls the degree of approximation.
+
 With fixed initial mu, we frist minimize smoothcost(x,mu) on M as usual.
+
 This is called inner itertaions under the fixed mu.
+
 When inner itertaions meet some condition, e.g., tolgradnorm <=0.5*mu, we start outer iterations, i.e., shrinking mu. 
+
 Theorem 3.6 in paper above show convergence to a stationary point of the original problem.
 
 # Introduction to smoothing funs
@@ -122,9 +127,9 @@ This function is called by:
 
 This function is called by:
 
-    Boss_RMC_perfect.m  --- Numerical experiments of section 5.2
+    Boss_RMC_perfect.m  --- Numerical experiments of section 5.2.1
     
-    Boss_RMC_outliers.m  --- Numerical experiments of section 5.2
+    Boss_RMC_outliers.m  --- Numerical experiments of section 5.2.1
     
     cmd_RMC --- Command to execute all experiments above
 
@@ -156,7 +161,7 @@ mgson.m
     (https://www.mathworks.com/matlabcentral/fileexchange/55881-gram-schmidt-orthogonalization),
     MATLAB Central File Exchange. Retrieved June 11, 2022.
 
-## (3) Used for Robust low-rank matrix completion (RMC)  problem
+## (3) Used for RMC problem
 
 erorr=RMSE(X,M0)
 
