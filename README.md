@@ -149,7 +149,7 @@ M = RandOrthMat(n, tol)
 
 ## (2) Used for FSV problem
 
-Q = mgson(X)
+mgson.m 
 
     Modified Gram-Schmidt orthonormalization (numerical stable version of Gram-Schmidt algorithm) 
     This open-source is provided by Mo Chen (2022).
@@ -177,7 +177,7 @@ RMC_mergefigs.m
 
 ## (4) Used for general problem
 
-RieSmooth_checksmoothingfuns(problem)
+RieSmooth_checksmoothingfuns.m 
 
     Check if problem.smoothcost is an smoothing function of problem.actualcost.
     Invalid if problem.actualcost is other functions used to evaluate the goodness of the solution.
@@ -186,7 +186,7 @@ demo_checksmoothingfuns.m
 
     demo of above.
 
-RieSmooth_checkgradient(problem)
+RieSmooth_checkgradient.m 
 
     Check if problem.egradsmoothcost (or, problem.gradsmoothcost) is the correct gradient
     of problem.smoothcost.
