@@ -2,12 +2,9 @@
 general smoothing method on Riemannian manifold
 
 These codes are supplementary materials for the paper below.
-
-title={Completely Positive Factorization by a Riemannian Smoothing Method},
-
-author={LAI, ZHIJIAN and YOSHISE, AKIKO},
-
-year={2021}
+''Completely Positive Factorization by a Riemannian Smoothing Method''
+[arXiv](https://arxiv.org/abs/2107.01538)
+LAI, ZHIJIAN and YOSHISE, AKIKO,2021.
 
 Before running the codes, you must install the solver 'Manopt'!!!!
 Getting started with Manopt and more help: https://www.manopt.org/tutorial.html
