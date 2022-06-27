@@ -1,11 +1,9 @@
 # General-Riemannian-Smoothing-Method
 general smoothing method on Riemannian manifold
 
-These codes are supplementary materials for the paper below.
-''Completely Positive Factorization by a Riemannian Smoothing Method''
-LAI, ZHIJIAN and YOSHISE, AKIKO,2021.
-[[arXiv]](https://arxiv.org/abs/2107.01538)
+These codes for the paper ''Completely Positive Factorization by a Riemannian Smoothing Method''.[[arXiv]](https://arxiv.org/abs/2107.01538)
 
+LAI, ZHIJIAN and YOSHISE, AKIKO,2021.
 
 Before running the codes, you must install the solver 'Manopt'!!!!
 Getting started with Manopt and more help: https://www.manopt.org/tutorial.html
@@ -25,21 +23,21 @@ function [x,cost,all_info,options]=RieSmooth(problem,[],options)
 
 ----------- Request for input structure variable 
 
-[problem]
+problem structure:
 
-problem.M % manifold
+- problem.M % manifold
 
-problem.actualcost = @(x) % actual cost function, or other functions used to evaluate the goodness of the solution.
+- problem.actualcost = @(x) % actual cost function, or other functions used to evaluate the goodness of the solution.
 
-problem.smoothcost  = @(x,mu) % smoothed cost function
+- problem.smoothcost  = @(x,mu) % smoothed cost function
 
-problem.egradsmoothcost = @(x,mu) % Euclidean gradient of smoothed cost function
+- problem.egradsmoothcost = @(x,mu) % Euclidean gradient of smoothed cost function
 
-or, problem.gradsmoothcost = @(x,mu) % Riemannian gradient of smoothed cost function
+- or, problem.gradsmoothcost = @(x,mu) % Riemannian gradient of smoothed cost function
 
-[options]
+options structure:
 
-options.outerstopfun(problem, x, info, totoal_iter) % A required user-specified method of exiting the RieSmooth
+- options.outerstopfun(problem, x, info, totoal_iter) % A required user-specified method of exiting the RieSmooth
 
 ----------- Brief description of Riemannian smoothing algorithm
 
