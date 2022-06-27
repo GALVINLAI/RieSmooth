@@ -30,7 +30,7 @@ end
 % newfolder=append('musigma',num2str(i));
 % mkdir(newfolder); % cerate new folder
 % cd(newfolder); % go to folder
-% [ALL_INFO,options] = Boss_RMC_outliers(50000,10,i,200,300);
+% [ALL_INFO,options] = Boss_RMC_outliers(5000,10,i,200,300);
 % cd ..\  % back to parent
 % end
 
