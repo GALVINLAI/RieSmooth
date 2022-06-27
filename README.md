@@ -70,7 +70,7 @@ result = grad_lse(X,mu)
     appr_abs1.m       appr_abs3.m       appr_abs5.m       grad_appr_abs2.m  grad_appr_abs4.m  
     appr_abs2.m       appr_abs4.m       grad_appr_abs1.m  grad_appr_abs3.m  grad_appr_abs5.m  
 
-# ----------- Introduction to problems, clients and bosses -----------
+# ----- Introduction to problems, clients and bosses -----
 
 List of problem:
 
