@@ -20,6 +20,7 @@ function [x,cost,all_info,options]=RieSmooth(problem,x0,options)
 function [x,cost,all_info,options]=RieSmooth(problem,[],options)
 
 ----------- Request for input structure variable 
+
 [problem]
 problem.M % manifold
 problem.actualcost = @(x) % actual cost function, or other functions used to evaluate the goodness of the solution.
@@ -31,6 +32,7 @@ or, problem.gradsmoothcost = @(x,mu) % Riemannian gradient of smoothed cost func
 options.outerstopfun(problem, x, info, totoal_iter) % A required user-specified method of exiting the RieSmooth
 
 ----------- Brief description of Riemannian smoothing algorithm
+
 We use a smoothed cost function to replace the actual (but not smoothed) cost function. 
 Parameter mu (positive) controls the degree of approximation.
 With fixed initial mu, we frist minimize smoothcost(x,mu) on M as usual.
@@ -63,27 +65,43 @@ Robust low-rank matrix completion (RMC)
 All the clients are base on the solver RieSmooth.m.
 
 (1) client_CPfact.m 
+
 If no input is provided, we generate a quick demo.
+
 This function is called by:
+
     Boss_CPfact_random.m --- Numerical experiments of section 4.1 
+    
     Boss_CPfact_special.m --- Numerical experiments of section 4.2 
+    
     Boss_CPfact_hard.m.m --- Numerical experiments of section 4.4 
+    
     cmd_CPfact.m --- Command to execute all experiments above
 
 (2) client_CPfact_easyCP.m
+
 This function is called by:
+
     Boss_CPfact_easy.m  --- Numerical experiments of section 4.3 
     
 (3) client_FSV.m 
+
 If no input is provided, we generate a quick demo.
+
 This function is called by:
+
     Boss_FSV.m  --- Numerical experiments of section 5.1
+    
     cmd_FSV.m --- Command to execute all experiments above
 
 (4) client_RMC.m
+
 This function is called by:
+
     Boss_RMC_perfect.m  --- Numerical experiments of section 5.2
+    
     Boss_RMC_outliers.m  --- Numerical experiments of section 5.2
+    
     cmd_RMC --- Command to execute all experiments above
 
 ----------- Introduction to tools -----------
