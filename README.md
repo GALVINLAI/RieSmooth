@@ -1,18 +1,13 @@
 # General-Riemannian-Smoothing-Method
-General smoothing method on Riemannian manifold, 
+General smoothing method on Riemannian manifold, for solving the general nonsmooth Riemannian optimization problem:
+$$\min _{x \in \mathcal{M}} f(x),$$
+where $\mathcal{M}$ is any available manifold in Manopt and $f:\mathcal{M} \to \mathbb{R}$ is nonsmooth. 
 
-for solving the general nonsmooth Riemannian optimization problem:
-			$$\min _{x \in \mathcal{M}} f(x),$$
-		where $\mathcal{M}$ is any available manifold in Manopt and $f:\mathcal{M} \to \mathbb{R}$ is nonsmooth. 
-
-These codes for the paper ''Completely Positive Factorization by a Riemannian Smoothing Method''.[[arXiv]](https://arxiv.org/abs/2107.01538)
-
+These codes for the paper ''Completely Positive Factorization by a Riemannian Smoothing Method''.[[arXiv]](https://arxiv.org/abs/2107.01538)\
 LAI, ZHIJIAN and YOSHISE, AKIKO,2021.
 
-Before running the codes, you must install the solver 'Manopt'!!!!
-Getting started with Manopt and more help: https://www.manopt.org/tutorial.html
-
-The code is based on matalb solver 'Manopt'.
+The code is based on matalb solver 'Manopt'.\
+Before running the codes, you must install the solver ['Manopt'](https://www.manopt.org/tutorial.html)!\
 Notice that we do not modify any of the functions given by the solver Manopt.
 
 # Introduction to solver RieSmooth.m
@@ -20,7 +15,6 @@ Notice that we do not modify any of the functions given by the solver Manopt.
 sovler of general Riemannian smoothing algorithm
 
 * function [x,cost,all_info,options]=RieSmooth(problem,x0,options)
-
 * function [x,cost,all_info,options]=RieSmooth(problem,[],options)
 
 ----------- Request for input structure variable 
@@ -28,13 +22,9 @@ sovler of general Riemannian smoothing algorithm
 **problem** structure:
 
 - problem.M % manifold
-
 - problem.actualcost = @(x) % actual cost function, or other functions used to evaluate the goodness of the solution.
-
 - problem.smoothcost  = @(x,mu) % smoothed cost function
-
 - problem.egradsmoothcost = @(x,mu) % Euclidean gradient of smoothed cost function
-
 - or, problem.gradsmoothcost = @(x,mu) % Riemannian gradient of smoothed cost function
 
 **options** structure:
@@ -43,17 +33,12 @@ sovler of general Riemannian smoothing algorithm
 
 ----------- Brief description of Riemannian smoothing algorithm
 
-We use a smoothed cost function to replace the actual (but not smoothed) cost function. 
-
-Parameter mu (positive) controls the degree of approximation.
-
-With fixed initial mu, we frist minimize smoothcost(x,mu) on M as usual.
-
-This is called inner itertaions under the fixed mu.
-
-When inner itertaions meet some condition, e.g., tolgradnorm <=0.5*mu, we start outer iterations, i.e., shrinking mu. 
-
-Theorem 3.6 in paper above show convergence to a stationary point of the original problem.
+We use a smoothed cost function to replace the actual (but not smoothed) cost function. \
+Parameter mu (positive) controls the degree of approximation.\
+With fixed initial mu, we frist minimize smoothcost(x,mu) on M as usual.\
+This is called inner itertaions under the fixed mu.\
+When inner itertaions meet some condition, e.g., tolgradnorm <=0.5*mu, we start outer iterations, i.e., shrinking mu. \
+Theorem 3.6 in paper above show convergence to a stationary point of the original problem.\
 
 # Introduction to smoothing funs
 
@@ -84,19 +69,14 @@ result = grad_lse(X,mu)
 # Introduction to problems, clients and bosses
 
 List of problem:
-
 1. Completely positive matrix factorization problem (CPfact)
-
 2. Finding the sparsest vector in a subspace (FSV)
-
 3. Robust low-rank matrix completion (RMC) 
 
 All the clients are base on the solver RieSmooth.m.
 
 ## (1) client_CPfact.m 
-
-If no input is provided, we generate a quick demo.
-
+If no input is provided, we generate a quick demo.\
 This function is called by:
 
     Boss_CPfact_random.m --- Numerical experiments of section 4.1 
@@ -108,15 +88,12 @@ This function is called by:
     cmd_CPfact.m --- Command to execute all experiments above
 
 ## (2) client_CPfact_easyCP.m
-
 This function is called by:
 
     Boss_CPfact_easy.m  --- Numerical experiments of section 4.3 
     
 ## (3) client_FSV.m 
-
-If no input is provided, we generate a quick demo.
-
+If no input is provided, we generate a quick demo.\
 This function is called by:
 
     Boss_FSV.m  --- Numerical experiments of section 5.1
