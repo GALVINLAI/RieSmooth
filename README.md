@@ -3,8 +3,9 @@ General smoothing method on Riemannian manifold, for solving the general nonsmoo
 $$\min _{x \in \mathcal{M}} f(x),$$
 where $\mathcal{M}$ is any available manifold in Manopt and $f:\mathcal{M} \to \mathbb{R}$ is nonsmooth. 
 
-These codes for the paper ''Completely Positive Factorization by a Riemannian Smoothing Method''.[[arXiv]](https://arxiv.org/abs/2107.01538)\
-LAI, ZHIJIAN and YOSHISE, AKIKO,2021.
+
+Reference: Lai, Z., Yoshise, A. Completely positive factorization by a Riemannian smoothing method. Comput Optim Appl 83, 933–966 (2022). https://doi.org/10.1007/s10589-022-00417-4
+
 
 The code is based on matalb solver 'Manopt'.\
 Before running the codes, you must install the solver ['Manopt'](https://www.manopt.org/tutorial.html)!\
